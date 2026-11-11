@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Palette: Luxury Emerald.
+ *   primary #0B3D2E · secondary #1F6E52 · gold #C9A227 · cream #F5F1E6
+ * Gold is for accents (lines, rings, the main button), never for text on cream.
+ */
+:root {
+  --bg: #f5f1e6;
+  --surface: #fbf9f3;
+  --surface-2: #eee8d8;
+  --ink: #0b3d2e;
+  --ink-soft: rgb(11 61 46 / 0.74);
+  --ink-faint: rgb(11 61 46 / 0.56);
+  --line: rgb(11 61 46 / 0.14);
+  --line-strong: rgb(11 61 46 / 0.28);
+  --brand: #1f6e52;
+  --brand-ink: #f5f1e6;
+  --gold: #c9a227;
+  --gold-soft: rgb(201 162 39 / 0.18);
+  --on-gold: #0b3d2e;
+  --shadow: 0 1px 2px rgb(11 61 46 / 0.06), 0 8px 24px -12px rgb(11 61 46 / 0.18);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #062419;
+  --surface: #0b3d2e;
+  --surface-2: #0f4736;
+  --ink: #f5f1e6;
+  --ink-soft: rgb(245 241 230 / 0.78);
+  --ink-faint: rgb(245 241 230 / 0.58);
+  --line: rgb(245 241 230 / 0.13);
+  --line-strong: rgb(245 241 230 / 0.26);
+  --brand: #1f6e52;
+  --brand-ink: #f5f1e6;
+  --gold: #c9a227;
+  --gold-soft: rgb(201 162 39 / 0.16);
+  --on-gold: #0b3d2e;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.2), 0 12px 32px -16px rgb(0 0 0 / 0.5);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-on-gold: var(--on-gold);
+  --shadow-card: var(--shadow);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--gold-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.font-display {
+  font-variation-settings: 'SOFT' 50, 'WONK' 0;
+}
+
+/* Persian text typed by the user keeps its own direction. */
+[dir='auto'] {
+  unicode-bidi: plaintext;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
